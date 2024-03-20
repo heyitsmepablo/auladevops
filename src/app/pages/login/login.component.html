@@ -25,16 +25,16 @@
   font-['Sora']
   leading-10">Faça o Login com os <br> seus dados</h1>
   <!-- container formulario -->
-  <form class="flex flex-col  h-96 w-full items-center justify-center">
-    <app-input class="mb-9"></app-input>
-    <app-input class="mb-3"></app-input>
-      <a class="ml-[13.5rem] text-neutral-500
-      text-xs
-      font-bold
-      font-['Sora']
-      underline
-      leading-3 hover:cursor-pointer mb-20">Esqueci a Senha</a>
-    <app-button-primary></app-button-primary>
+  <form class="flex flex-col h-96 w-full items-center justify-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="text" name="" id="" class="w-96 h-12 bg-[#F2F2F2] active:outline-[0.1px] outline-yellow-300 mb-9" formControlName="email">
+    <input type="text" name="" id="" class="w-96 h-12 bg-[#F2F2F2] active:outline-[0.1px] outline-yellow-300 mb-3" formControlName="senha">
+    <a class="ml-[13.5rem] text-neutral-500
+    text-xs
+    font-bold
+    font-['Sora']
+    underline
+    leading-3 hover:cursor-pointer mb-20">Esqueci a Senha</a>
+    <app-button-primary type="submit"></app-button-primary>
   </form>
 
   </div>
