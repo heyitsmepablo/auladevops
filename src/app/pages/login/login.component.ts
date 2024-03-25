@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { IconStockeeLogoBwComponent } from '../../icons/icon-stockee-logo-bw/icon-stockee-logo-bw.component';
 import { InputComponent } from '../../shared/input/input.component';
 import { ButtonPrimaryComponent } from '../../shared/button-primary/button-primary.component';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+
+
+
 
 
 
@@ -15,14 +18,17 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class LoginComponent {
 
-  loginForm!:FormGroup;
   FormData!:any
+  Condicao:boolean = false
+  css:boolean = true
+  formLogin!:FormGroup
 
-  constructor( private formBuilder:FormBuilder){
 
-    this.loginForm = formBuilder.group({
-      email:[''],
-      senha:[''],
+  constructor( private formBuilder:FormBuilder ){
+
+    this.formLogin = formBuilder.group({
+      email:['pablo@pablo.com',Validators.required],
+      senha:['123123123']
     })
 
   }
@@ -30,8 +36,7 @@ export class LoginComponent {
 
 
   onSubmit(){
-    this.FormData = this.loginForm.getRawValue()
-    alert( JSON.stringify(this.FormData))
+    alert(JSON.stringify(this.formLogin.getRawValue()))
   }
 
 }
